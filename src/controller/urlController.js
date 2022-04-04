@@ -1,5 +1,6 @@
 const urlModel = require("../model/urlModel")
 const shortid = require('shortid');
+const validUrl = require('valid-url')
 
 shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-');
 // console.log(shortid.generate().toLowerCase());
@@ -16,6 +17,9 @@ const createUrl = async (req, res) => {
         const data = {}
         if (!isValid(url)){
             return res.status(400).send({status: false, msg: "please enter url"})
+        }
+        if (!validUrl.isUri(url)){
+            return res.status(400).send({status: false, msg: "this is not a valid url"})
         }
         const baseUrl = "http://127.0.0.1:3000"
         const shortId = shortid.generate().toLowerCase()
