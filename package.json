@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Rohan7050/project_four#readme",
   "dependencies": {
     "express": "^4.17.3",
-    "mongoose": "^6.2.9"
+    "mongoose": "^6.2.9",
+    "shortid": "^2.2.16"
   }
 }
