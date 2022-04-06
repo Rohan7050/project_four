@@ -9,8 +9,12 @@ router.post("/url/shorten", urlController.createUrl)
 
 router.get("/:urlCode", urlController.redirectTo)
 
-router.get("/test", (req, res) => {
-    res.status(301).redirect("https://github.com/Rohan7050/project_four/tree/project/urlShortnerGroup45")
+router.get("*", (req, res) => {
+    res.status(404).send({status: false, massage: "page not found"})
+})
+
+router.post("*", (req, res) => {
+    res.status(404).send({status: false, massage: "page not found"})
 })
 
 

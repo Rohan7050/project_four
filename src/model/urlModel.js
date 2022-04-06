@@ -10,7 +10,8 @@ const urlSchema = new mongose.Schema({
     },
     longUrl: {
         type: String,
-        required: "please enter longUrl"
+        required: "please enter longUrl",
+        unique: true
     },
     shortUrl: {
         type: String,
